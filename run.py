@@ -7,11 +7,12 @@ for line in input:
     while i < n:
         if line[i] == "\\":
             len = line[i + 1]
-            print len
+            #print len
             char = line[i + 2]
-            print char
+            #print char
             sys.stdout.write(char * (int(len) + 3))
+            i = i + 2
         else:
             sys.stdout.write(line[i])
-        i = i + 2
+            i = i + 1
     print
