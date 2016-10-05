@@ -2,11 +2,11 @@ import sys
 
 alpha = {}
 alpha['A'] = 10
-alpha['A'] = 11
-alpha['A'] = 12
-alpha['A'] = 13
-alpha['A'] = 14
-alpha['A'] = 15
+alpha['B'] = 11
+alpha['C'] = 12
+alpha['D'] = 13
+alpha['E'] = 14
+alpha['F'] = 15
 
 input = open('input', "r")
 for line in input:
@@ -19,7 +19,7 @@ for line in input:
             char = line[i + 2]
             #print char
             if len in alpha.keys():
-                len = alpha(len)
+                len = alpha[len]
             else:
                 len = int(len)
             sys.stdout.write(char * (len + 3))
