@@ -28,8 +28,11 @@ for line in input:
                     break
                 if c_len in alpha.keys():
                     c_len = alpha[c_len]
-                else:
+                elif c_len.isdigit():
                     c_len = int(c_len)
+                else:
+                    c_res = "CORRUPTED"
+                    break
                 c_res += char * (c_len + 2)
                 i = i + 2
             else:
