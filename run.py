@@ -10,21 +10,29 @@ alpha['F'] = 15
 
 input = open('input', "r")
 for line in input:
-    n = len(line)
-    i = 0
-    while i < n:
-        if line[i] == "\\":
-            len = line[i + 1]
-            #print len
-            char = line[i + 2]
-            #print char
-            if len in alpha.keys():
-                len = alpha[len]
+    line = line.strip()
+    #print line
+    if "\\\\" in line:
+        print "CORRUPTED"
+        continue
+    else:
+        n = len(line)
+        i = 0
+        c_res = ""
+        while i < n:
+            if line[i] == "\\":
+                c_len = line[i + 1]
+                char = line[i + 2]
+                if char == "\\":
+                    c_res = "CORRUPTED"
+                    break
+                if c_len in alpha.keys():
+                    c_len = alpha[c_len]
+                else:
+                    c_len = int(c_len)
+                c_res += char * (c_len + 2)
+                i = i + 2
             else:
-                len = int(len)
-            sys.stdout.write(char * (len + 3))
-            i = i + 2
-        else:
-            sys.stdout.write(line[i])
-            i = i + 1
-    print
+                c_res += line [i]
+                i = i + 1
+        print c_res
